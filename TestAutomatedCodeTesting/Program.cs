@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace TestAutomatedCodeTesting {
 	class Program {
-		void Test(int num, int den, double expected, string testName) {
+		void TestFraction(int num, int den, double expected, string testName) {
 			Fraction fraction = new Fraction();
 			fraction.Numerator = num;
 			fraction.Denominator = den;
@@ -18,15 +18,28 @@ namespace TestAutomatedCodeTesting {
 			Debug.WriteLine($"{testName} returned {aDecimal}, {Passed}");
 		}
 
+		void TestPower(double Base, double Exponent) {
+			Power power = new Power();
+			power.Base = Base;
+			power.Exponent = Exponent;
+
+			var aPower = power.Calculate();
+			Debug.WriteLine($"{Base} to the {Exponent} power resulted in {aPower}");
+		}
+
 		void Run() {
-			foreach(var num in new int[] { -100, -99, -50, -1, 0, 1, 50, 99, 100 }) {
-				foreach (var den in new int[] { -100, -99, -50, -1, 1, 50, 99, 100 }) {
-					Test(num, den, -1, $"Dividing {num} by {den} equals");
+			//foreach(var num in new int[] { -100, -99, -50, -1, 0, 1, 50, 99, 100 }) {
+			//	foreach (var den in new int[] { -100, -99, -50, -1, 1, 50, 99, 100 }) {
+			//		TestFraction(num, den, -1, $"Dividing {num} by {den} equals");
+			//	}
+			//}
+
+			foreach (var Base in new int[] { -5, -2, -1, 0, 1, 2, 5 }) {
+				foreach (var Exponent in new int[] { -5, -2, -1, 0, 1, 2, 5 }) {
+					TestPower(Base, Exponent);
 				}
 			}
-			
-			//Test(-100, 100, -1, "Dividing 100 by -100 should be -1");
-			//Test(99, -99, -1, "Dividing 99 by -99 should be -1");
+
 			Fraction fraction = new Fraction();
 
 			fraction.Numerator = 0;

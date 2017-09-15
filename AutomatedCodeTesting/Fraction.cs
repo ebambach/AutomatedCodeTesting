@@ -8,6 +8,7 @@ namespace AutomatedCodeTesting
 {
     public class Fraction
     {
+		public static string FractionClassName = "Fraction";
 		public int Numerator { get; set; }
 
 		private int _denominator;
